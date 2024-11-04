@@ -27,6 +27,10 @@ Install Dependencies
 
 Ensure you have pip installed. Then, install the required Python packages: pip install -r requirements.txt
 
+Setup Clicksend account
+
+https://www.clicksend.com/au/
+
 Set Up MariaDB
 
 To enable logging and data storage, you'll need to set up a MariaDB database with the required script_logs table.
