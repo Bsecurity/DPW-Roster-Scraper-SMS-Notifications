@@ -1,0 +1,38 @@
+A
+SELECT COUNT(*) AS 'Day'
+FROM `script_logs`
+WHERE `shift_start` IN (600, 700, 800)
+  AND `sms_content` NOT REGEXP '(?i)Annual Leave'
+  AND `sms_content` NOT REGEXP '(?i)Sick Leave';
+
+B
+SELECT COUNT(`shift_start`) AS 'Eve'
+FROM `script_logs`
+WHERE `shift_start` = 1400
+  AND `sms_content` NOT REGEXP 'Annual Leave'
+  AND `sms_content` NOT REGEXP 'Sick Leave';
+
+C
+SELECT COUNT(`shift_start`) AS 'Night'
+FROM `script_logs`
+WHERE `shift_start` = 2200
+  AND `sms_content` NOT REGEXP 'Annual Leave'
+  AND `sms_content` NOT REGEXP 'Sick Leave';
+
+D
+SELECT COUNT(`sms_content`) AS 'Ann'
+FROM `script_logs`
+WHERE `sms_content` REGEXP 'Annual Leave';
+
+E
+SELECT COUNT(`sms_content`) AS 'Sick'
+FROM `script_logs`
+WHERE `sms_content` REGEXP 'Sick Leave';
+
+F
+SELECT COUNT(`hours`) AS 'Not Rostered'
+FROM `script_logs`
+WHERE `hours` = 0
+  AND `sms_content` REGEXP '(?i)Not rostered'
+  AND `sms_content` NOT REGEXP 'Annual Leave'
+  AND `sms_content` NOT REGEXP 'Sick Leave';

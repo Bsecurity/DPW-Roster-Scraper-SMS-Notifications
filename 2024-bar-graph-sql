@@ -1,0 +1,33 @@
+SELECT
+    DATE_FORMAT(`date`, '%Y-%m') AS `Month`,
+    SUM(CASE 
+        WHEN `shift_start` IN (600, 700, 800)
+             AND `sms_content` NOT REGEXP '(?i)Annual Leave'
+             AND `sms_content` NOT REGEXP '(?i)Sick Leave'
+        THEN 1 ELSE 0 END) AS `Day`,
+    SUM(CASE 
+        WHEN `shift_start` = 1400
+             AND `sms_content` NOT REGEXP '(?i)Annual Leave'
+             AND `sms_content` NOT REGEXP '(?i)Sick Leave'
+        THEN 1 ELSE 0 END) AS `Evening`,
+    SUM(CASE 
+        WHEN `shift_start` = 2200
+             AND `sms_content` NOT REGEXP '(?i)Annual Leave'
+             AND `sms_content` NOT REGEXP '(?i)Sick Leave'
+        THEN 1 ELSE 0 END) AS `Night`,
+    SUM(CASE 
+        WHEN `sms_content` REGEXP '(?i)Annual Leave'
+        THEN 1 ELSE 0 END) AS `Ann`,
+    SUM(CASE 
+        WHEN `sms_content` REGEXP '(?i)Sick Leave'
+        THEN 1 ELSE 0 END) AS `Sick`,
+    SUM(CASE 
+        WHEN `hours` = 0
+             AND `sms_content` REGEXP '(?i)Not rostered'
+             AND `sms_content` NOT REGEXP '(?i)Annual Leave'
+             AND `sms_content` NOT REGEXP '(?i)Sick Leave'
+        THEN 1 ELSE 0 END) AS `Not_Rostered`
+FROM `script_logs`
+WHERE $__timeFilter(`date`)
+GROUP BY `Month`
+ORDER BY `Month` ASC;
