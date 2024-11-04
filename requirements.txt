@@ -1,0 +1,5 @@
+selenium
+clicksend-client
+beautifulsoup4
+argparse
+requests
