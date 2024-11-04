@@ -9,9 +9,6 @@ script that sends SMS notifications via the ClickSend API.
 Ensure that this file is kept secure and **never** exposed publicly, especially if it contains
 sensitive information like usernames, passwords, or API credentials.
 
-Best Practices:
-- Add `config.py` to your `.gitignore` file to prevent it from being committed to version control.
-- Consider using environment variables or a separate secure method for managing sensitive data.
 """
 
 # === DPW Microster Credentials ===
@@ -28,7 +25,6 @@ CLICKSEND_PASSWORD = 'your_clicksend_password'  # Replace with your ClickSend AP
 
 # === SMS Recipients ===
 # Define the recipients who will receive the SMS notifications.
-# The keys represent roles or identifiers, and the values are the corresponding phone numbers.
 
 RECIPIENTS = {
     'self': '+1234567890',   # Your own phone number (e.g., '+1234567890')
