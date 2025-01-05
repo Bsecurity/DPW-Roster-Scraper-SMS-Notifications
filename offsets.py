@@ -1,17 +1,17 @@
 
 # Define a dictionary with month offsets for the next 12 months
 month_offsets = {
-    1: 1,   # January (2024)
-    2: 4,   # February
-    3: 5,   # March
-    4: 1,   # April
-    5: 3,   # May
-    6: 6,   # June
-    7: 1,   # July
-    8: 4,   # August
-    9: 0,   # September
-    10: 2,  # October
-    11: 5,  # November
-    12: 0,  # December
+    1: 3,   # January (2025)
+    2: 6,   # February
+    3: 6,   # March
+    4: 2,   # April
+    5: 4,   # May
+    6: 0,   # June
+    7: 2,   # July
+    8: 5,   # August
+    9: 1,   # September
+    10: 3,  # October
+    11: 6,  # November
+    12: 1,  # December
     # Add more months and their offsets as needed
 }
